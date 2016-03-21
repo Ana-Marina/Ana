@@ -1,0 +1,34 @@
+
+
+Boardul tine casele in acelasi mod in care sunt dati parametrii functiei build.
+Pentru a se putea itera prin casele de pe board am creeat tipul Position care
+descrie o pozitie de pe board si functia step pentru a itera prin pozitii.
+
+Pentru a modifica boardul am scris functii addSeeds, getSeeds si setSeeds care
+modifica/returneaza numarul de seminte din casa specificata.
+
+Majoritate functiilor cerute au o implementare simpla. Ce-a mai complexa functie
+din tema este functia de move.
+
+Functia move genereaza pathul prin care se face semanarea semintelor cu functia
+generatePath. Un path este o succesiune de pozitii consecutive care parcurge
+boardul in ordinea inversa acelor de ceas si care sare peste magazia jucatorului
+oponent. Acest path este dat functii applyPath care face semanarea semintelor.
+Prima pozitie din path este goliata iar restul celorlalte pozitii primesc fiecare
+care o samanta.
+
+Dupa aplicarea functei applyPath se obtine board2. Functia takeSeeds ia semintele
+de la pozitia data si pozitia opusa se le pune in magazia jucatorului curent.
+Aceasta functie este aplicata asupra boardului board2 cu ultima pozitie din path
+data ca parametru si se obtine board3.
+
+In functie de cazul in care ne aflam functia move returneaza board(mutare invalida),
+board2(ultima casa din path nu a fost goala sau casa opusa ei a fost goala) sau
+board3(ultima casa din path a fost goala si casa opusa nu a fost goala), cu
+schimbarea jucatorului curent daca este cazul.
+
+Functia successors genereaza fiecare mutare posibila, cu filtrarea mutarilor care
+sunt invalide, acest lucru se face print-un list comprehension.
+
+Functia de step pentru AISimple se foloseste de rezultatul functiei successros pentru
+a determina mutarea ce maximizeaza scorul oponentului.

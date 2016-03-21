@@ -1,0 +1,28 @@
+
+
+Un nod este reprezentat de o structura cu 3 campuri:
+- numele atributului
+- lista de valori
+- lista de copii
+Fiecarei valori ii corespunde un copil.
+
+O frunza este reprezentata de un nod fara copii.
+
+Calcularea entropiei:
+Se calculeaza proportia fiecare clase(numarul de exemple care contin acea clasa) si se aplica functia
+entropy. Acest lucru se face prin functiile ajutatoare:
+- examples-proportion
+- examples-proportions (mapeaza examples-proportion pe o lista de valori)
+
+Calcularea castigului informational:
+Este necesara determinarea subseturilor de exemple care contin anumite atribute si calcularea
+entropiei acestor subseturi. Functiile ajutatoare sunt:
+- examples-subset
+- examples-subsets (mapeaza examples-subset pe o lista de valori)
+- compute-subset-gain (calculeaza p(S-value)*H(S-value))
+
+Constructia arborelui:
+Se determina atributul cu castigul informational(IG) maxim si se face partitionarea pe baza lui.
+Se apeleaza create-tree recursiv asupra partitiilor pentru a se genera lista de copii a nodului.
+In cazul in care numarul de atribute este 0 sau IG=0 inseamna ca toate exemplele au aceeasi clasa
+si se creeaza frunza corespunzatoare.

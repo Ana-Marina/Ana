@@ -1,0 +1,27 @@
+
+
+	Pentru prima problema am folosit programare dinamica, similar cu problema rucsacului clasica. 
+Am construit o matrice 4d unde prima dimensiune reprezinta obiectul, a 2-a greutatea obiectelor din rucsacul 
+1, a 3-a greutatea obiectelor din rucsacul 2 iar ultima valoarea obiectelor din rucsacul 1. 
+
+	Algoritmul incepe prin a initializa matricea cu valoare negativa si 0 pe prima pozitie(vec[0][0][0][0]). 
+La citirea obiectelor din fisiser se aproximeaza valoarea maxima ce se poate pune in primul rucsac pentru a 
+economisii memorie in cazul in care aceasta este < 150. 
+
+	In bucla principala se verifica daca obiectul poate intra in primul rucsac si se determina new_val1, 
+adica valoarea maxima din al 2-lea rucsac daca obiectul s-ar pune in primul rucsac. Urmeaza sa se determine 
+new_val2 care reprezinta valoarea maxima din al 2-lea rucsac daca obiectul s-ar pune in al 2-lea rucsac si 
+valoarea din al 2-lea rucsac la pasul anterior. Se alege cazul care maximizeaza profitul din al 2-lea rucsac.
+
+	Pe parcursul iterarii se verifica daca produsul la pasul curent e maxim si se salveaza. La final se 
+obtine produsul maxim. 
+
+
+	Pentru a 2-a problema m-am folosit de faptul ca se poate determina rankul unei sume in O(n) si am facut 
+o cautare binara intre suma minima si maxima din vector. Trebuie tinut cont de faptul ca aceeasi suma poate 
+aparea de mai multe ori, asa ca functia rank_elem returneaza un interval de rankuri in care acea suma apare. 
+
+	Daca capatul stang al intervalului este < capatul drept al intervalului ( rank.first<rank.second ) atunci 
+suma nu este o suma alcatuita din elementele vectorului de numere ( nu exista i si j astfel incat 
+v[i]+v[j]==sum ).
+
